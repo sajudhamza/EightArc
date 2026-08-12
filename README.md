@@ -32,7 +32,7 @@ npm run build      # static export to ./out
 
 4. After the first deploy, add your custom domain under **App settings → Domain management** (eightarc.com).
 
-Because the site is a static export (`output: 'export'` in `next.config.mjs`), Amplify serves it from its CDN with no server-side compute, minimal cost.
+Because the site is a static export (`output: 'export'` in `next.config.mjs`), Amplify Hosting serves it as SSG. Build settings live in `amplify.yml` (`baseDirectory: .next`, Node 20).
 
 ## Updating content
 
