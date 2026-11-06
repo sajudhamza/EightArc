@@ -1,56 +1,50 @@
-import type { Metadata } from 'next';
-
+import type { Metadata } from "next";
+import ProjectInquiry from "@/components/ProjectInquiry";
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: "Start a project",
   description:
-    'Partnerships, press, investors, or questions about our products. Get in touch with EightArc.',
+    "Talk to EightArc about software development, AI and machine learning, or data analytics.",
 };
-
-const card =
-  'bg-white border border-line rounded-[14px] px-7 py-6 flex justify-between items-center gap-4 flex-wrap';
-const linkCls = 'font-bold text-[15.5px] text-indigo hover:text-indigo-hover transition-colors duration-150';
-
 export default function Contact() {
   return (
-    <main className="max-w-content mx-auto px-8 max-[720px]:px-5 py-[100px] max-[880px]:py-16">
-      <div className="max-w-[620px]">
-        <div className="text-[13px] font-bold tracking-[0.12em] uppercase text-indigo mb-4">Contact</div>
-        <h1 className="text-[52px] max-[880px]:text-[34px] font-black tracking-[-0.03em] m-0 mb-[22px]">
-          Let&apos;s talk.
-        </h1>
-        <p className="text-lg leading-[1.7] text-body m-0 mb-10 [text-wrap:pretty]">
-          Partnerships, press, investors, or questions about our products. We read everything.
-        </p>
-        <div className="flex flex-col gap-4">
-          <div className={card}>
+    <main id="main-content" className="section-wrap page-hero">
+      <div className="contact-layout">
+        <div>
+          <span className="eyebrow">LET’S BUILD SOMETHING USEFUL</span>
+          <h1>
+            Your next idea.
+            <br />
+            <span className="serif-accent">Our next conversation.</span>
+          </h1>
+          <p className="page-intro">
+            Tell us what you’re working on, where you’re stuck, or what you’d
+            like to make possible.
+          </p>
+          <div className="contact-links">
             <div>
-              <div className="font-bold text-base">General</div>
-              <div className="text-sm text-muted">Everything else</div>
+              <span className="eyebrow">EMAIL</span>
+              <br />
+              <a href="mailto:hello@eightarc.com">hello@eightarc.com ↗</a>
             </div>
-            <a href="mailto:hello@eightarc.com" className={linkCls}>hello@eightarc.com</a>
-          </div>
-          <div className={card}>
-            <div>
-              <div className="font-bold text-base">Consulting &amp; development</div>
-              <div className="text-sm text-muted">Project inquiries</div>
+            <div style={{ marginTop: 20 }}>
+              <span className="eyebrow">PHONE</span>
+              <br />
+              <a href="tel:+19292602471">(929) 260-2471</a>
             </div>
-            <a href="mailto:consulting@eightarc.com" className={linkCls}>consulting@eightarc.com</a>
-          </div>
-          <div className={card}>
-            <div>
-              <div className="font-bold text-base">LawOnSight</div>
-              <div className="text-sm text-muted">Consumer legal help</div>
+            <div style={{ marginTop: 20 }}>
+              <span className="eyebrow">ADDRESS</span>
+              <address style={{ fontStyle: "normal", color: "var(--muted)" }}>
+                971 US Highway 202N, Ste R<br />
+                Branchburg, NJ 08876
+              </address>
             </div>
-            <a href="https://lawonsight.com" target="_blank" rel="noopener noreferrer" className={linkCls}>lawonsight.com</a>
           </div>
-          <div className={card}>
-            <div>
-              <div className="font-bold text-base">PermFlowAI</div>
-              <div className="text-sm text-muted">PERM workflow software</div>
-            </div>
-            <a href="https://www.permflowai.com" target="_blank" rel="noopener noreferrer" className={linkCls}>permflowai.com</a>
-          </div>
+          <p className="page-intro" style={{ fontSize: 14, marginTop: 30 }}>
+            From software and AI to consulting, data administration, and ongoing
+            IT support, we’ll help you find a practical starting point.
+          </p>
         </div>
+        <ProjectInquiry />
       </div>
     </main>
   );

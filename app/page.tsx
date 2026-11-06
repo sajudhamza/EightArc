@@ -1,166 +1,266 @@
-import Link from 'next/link';
-
-function ScreenshotPlaceholder({ variant, label }: { variant: 'light' | 'dark'; label: string }) {
-  const id = variant === 'light' ? 'stripeA' : 'stripeB';
-  const bg = variant === 'light' ? ['#eef0fb', '#e5e8f8'] : ['#1f2029', '#24252f'];
-  const text = variant === 'light' ? '#575a70' : '#9a9cb0';
-  const border = variant === 'light' ? 'border-line' : 'border-dark-border';
-  return (
-    <svg viewBox="0 0 480 360" className={`w-full rounded-[14px] border ${border}`} role="img" aria-label={label}>
-      <defs>
-        <pattern id={id} width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <rect width="10" height="10" fill={bg[0]} />
-          <rect width="5" height="10" fill={bg[1]} />
-        </pattern>
-      </defs>
-      <rect width="480" height="360" fill={`url(#${id})`} />
-      <text x="240" y="184" textAnchor="middle" fontFamily="monospace" fontSize="14" fill={text}>
-        [ {label} ]
-      </text>
-    </svg>
-  );
-}
-
+import Link from "next/link";
+import IntelligenceVisual from "@/components/IntelligenceVisual";
+import ServiceLab from "@/components/ServiceLab";
+import Products from "@/components/Products";
+const services = [
+  [
+    "01",
+    "Software development",
+    "Thoughtful software. Built to work.",
+    "Web applications, internal tools, APIs, and cloud platforms. From the first prototype to the systems your business depends on.",
+    [
+      "Full-stack engineering",
+      "Cloud & API integration",
+      "Product modernization",
+    ],
+    "⌘",
+  ],
+  [
+    "02",
+    "AI & LLM solutions",
+    "Make intelligence part of the workflow.",
+    "Custom copilots, document intelligence, and AI agents that help people find answers and move work forward.",
+    [
+      "RAG & semantic search",
+      "LLM integration",
+      "Agent workflows & evaluation",
+    ],
+    "✳",
+  ],
+  [
+    "03",
+    "Machine learning & RL",
+    "Learn from data. Improve decisions.",
+    "Predictive models, computer vision, and simulation-led optimization, built around a clearly defined business problem.",
+    ["Predictive modeling", "Computer vision & NLP", "Reinforcement learning"],
+    "◈",
+  ],
+  [
+    "04",
+    "Data analytics & engineering",
+    "From raw data to clear direction.",
+    "Reliable pipelines, useful dashboards, and analytics foundations that make your business easier to understand.",
+    [
+      "Data pipelines & warehouses",
+      "Business intelligence",
+      "Reporting automation",
+    ],
+    "▥",
+  ],
+  [
+    "05",
+    "Technology consulting",
+    "Clarity before the next big decision.",
+    "Practical guidance for technology strategy, architecture, digital transformation, and AI adoption. Align your systems and investments with your business goals.",
+    [
+      "IT strategy & roadmaps",
+      "Architecture & system reviews",
+      "AI readiness & adoption",
+    ],
+    "◎",
+  ],
+  [
+    "06",
+    "Database & data administration",
+    "Keep your data organized and dependable.",
+    "Database setup, administration, migrations, and performance tuning to keep business data accessible, well managed, and ready for everyday use.",
+    [
+      "Database administration & tuning",
+      "Backup & recovery planning",
+      "Data migration & access management",
+    ],
+    "▤",
+  ],
+  [
+    "07",
+    "IT support & managed services",
+    "Support for the systems you rely on.",
+    "Day-to-day technical support and ongoing care for applications, cloud environments, workplace tools, and IT infrastructure. Keep your team focused on its work.",
+    [
+      "User support & troubleshooting",
+      "Cloud & infrastructure maintenance",
+      "Monitoring, updates & system administration",
+    ],
+    "⚙",
+  ],
+];
 export default function Home() {
   return (
-    <main>
-      {/* Hero */}
-      <section className="max-w-content mx-auto px-8 max-[720px]:px-5 pt-[116px] pb-24 max-[880px]:pt-20 max-[880px]:pb-16">
-        <div className="max-w-[820px]">
-          <h1 className="text-[68px] max-[880px]:text-[40px] leading-[1.02] tracking-[-0.035em] font-black m-0 mb-[26px]">
-            The law belongs to everyone.{' '}
-            <span className="font-serif font-medium italic text-indigo">Our software proves it.</span>
+    <main id="main-content">
+      <section className="hero section-wrap">
+        <div className="hero-copy">
+          <div className="eyebrow">
+            <span className="status-dot" /> SOFTWARE. INTELLIGENCE. IMPACT.
+          </div>
+          <h1>
+            Build what’s next.
+            <br />
+            <span className="serif-accent">Make it intelligent.</span>
           </h1>
-          <p className="text-xl leading-relaxed text-secondary m-0 mb-[38px] max-w-[600px] [text-wrap:pretty]">
-            EightArc builds legal technology that puts real legal power in more hands, whether
-            you&apos;re one person with a question or a legal team with a hundred filings.
+          <p>
+            We build software, AI systems, and data platforms that turn complex
+            challenges into practical possibilities.
           </p>
-          <div className="flex gap-3.5 flex-wrap">
-            <Link
-              href="/#products"
-              className="bg-indigo text-white px-7 py-3.5 rounded-[9px] font-bold text-base hover:bg-indigo-hover transition-colors duration-150"
-            >
-              See our products
+          <div className="button-row">
+            <Link className="primary-button" href="/contact">
+              Let’s build together <span>↗</span>
             </Link>
-            <Link
-              href="/about"
-              className="border-[1.5px] border-outline text-ink px-7 py-3.5 rounded-[9px] font-bold text-base hover:border-indigo hover:text-indigo transition-colors duration-150"
-            >
-              Our mission
-            </Link>
+            <a className="secondary-button" href="#explore">
+              Explore our capabilities ↓
+            </a>
+          </div>
+          <div className="hero-footnote">
+            <span>From idea to implementation.</span>
+            <span>Built around your business.</span>
           </div>
         </div>
+        <IntelligenceVisual />
       </section>
-
-      {/* LawOnSight */}
-      <section id="products" className="anchor-offset border-t border-line bg-white">
-        <div className="max-w-content mx-auto px-8 max-[720px]:px-5 py-24 max-[880px]:py-16 grid grid-cols-2 max-[880px]:grid-cols-1 gap-[72px] max-[880px]:gap-10 items-center">
+      <div className="capability-strip">
+        <div className="section-wrap">
+          <span>ENGINEERED FOR WHAT’S NEXT</span>
           <div>
-            <div className="inline-flex items-center gap-2 text-[12.5px] font-bold tracking-[0.1em] uppercase text-indigo mb-[18px]">
-              Product 01 · For individuals
-            </div>
-            <h2 className="text-[42px] max-[880px]:text-[32px] font-extrabold tracking-[-0.025em] m-0 mb-[18px]">LawOnSight</h2>
-            <p className="text-[17px] leading-[1.7] text-body m-0 mb-[22px] [text-wrap:pretty]">
-              Free legal advice and the right attorney, on sight. LawOnSight answers legal questions
-              24/7 and connects people with lawyers across immigration, personal injury, family law,
-              criminal defense, business law, and more.
-            </p>
-            <ul className="m-0 mb-7 p-0 list-none flex flex-col gap-3 text-ink text-[15.5px] font-medium">
-              <li className="flex gap-3 items-baseline"><span className="text-indigo font-extrabold">01</span> Free answers to legal questions, any time</li>
-              <li className="flex gap-3 items-baseline"><span className="text-indigo font-extrabold">02</span> Find attorneys near you, matched to your matter</li>
-              <li className="flex gap-3 items-baseline"><span className="text-indigo font-extrabold">03</span> Know your rights: immigration, injury, family, criminal, business</li>
-            </ul>
-            <a
-              href="https://lawonsight.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-[15.5px] text-indigo hover:text-indigo-hover transition-colors duration-150"
-            >
-              Visit lawonsight.com →
-            </a>
-          </div>
-          <ScreenshotPlaceholder variant="light" label="LawOnSight product screenshot" />
-        </div>
-      </section>
-
-      {/* PermFlowAI */}
-      <section className="bg-dark text-dark-text">
-        <div className="max-w-content mx-auto px-8 max-[720px]:px-5 py-24 max-[880px]:py-16 grid grid-cols-2 max-[880px]:grid-cols-1 gap-[72px] max-[880px]:gap-10 items-center">
-          <div className="max-[880px]:order-2">
-            <ScreenshotPlaceholder variant="dark" label="PermFlowAI product screenshot" />
-          </div>
-          <div className="max-[880px]:order-1">
-            <div className="inline-flex items-center gap-2 text-[12.5px] font-bold tracking-[0.1em] uppercase text-teal mb-[18px]">
-              Product 02 · For legal teams
-            </div>
-            <h2 className="text-[42px] max-[880px]:text-[32px] font-extrabold tracking-[-0.025em] m-0 mb-[18px]">PermFlowAI</h2>
-            <p className="text-[17px] leading-[1.7] text-dark-body m-0 mb-[22px] [text-wrap:pretty]">
-              Workflow-first software for PERM labor certification. PermFlowAI keeps recruitment
-              timelines, evidence, and filing readiness organized, with attorney review built into
-              every step.
-            </p>
-            <ul className="m-0 mb-7 p-0 list-none flex flex-col gap-3 text-dark-text text-[15.5px] font-medium">
-              <li className="flex gap-3 items-baseline"><span className="text-teal font-extrabold">01</span> PERM recruitment timelines, tracked automatically</li>
-              <li className="flex gap-3 items-baseline"><span className="text-teal font-extrabold">02</span> Evidence tracking and filing readiness</li>
-              <li className="flex gap-3 items-baseline"><span className="text-teal font-extrabold">03</span> Attorney review workflows, end to end</li>
-            </ul>
-            <a
-              href="https://www.permflowai.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-teal font-bold text-[15.5px] hover:text-white transition-colors duration-150"
-            >
-              Visit permflowai.com →
-            </a>
+            Software engineering <i>✳</i> Generative AI <i>✳</i> Machine
+            learning <i>✳</i> Data analytics
           </div>
         </div>
-      </section>
-
-      {/* Services */}
-      <section id="services" className="anchor-offset border-t border-line bg-white">
-        <div className="max-w-content mx-auto px-8 max-[720px]:px-5 py-[88px] max-[880px]:py-16">
-          <div className="max-w-[640px] mb-12">
-            <div className="text-[12.5px] font-bold tracking-[0.1em] uppercase text-indigo mb-[18px]">Services</div>
-            <h2 className="text-[42px] max-[880px]:text-[32px] font-extrabold tracking-[-0.025em] m-0 mb-[18px]">
-              Consulting &amp; software development
+      </div>
+      <Products />
+      <section
+        id="services"
+        className="section-wrap section-space anchor-offset"
+      >
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">WHAT WE DO</span>
+            <h2>
+              Good ideas deserve
+              <br />
+              <span className="serif-accent">great engineering.</span>
             </h2>
-            <p className="text-[17px] leading-[1.7] text-body m-0 [text-wrap:pretty]">
-              Beyond our products, we take on select consulting and custom software engagements,
-              bringing the same product discipline to your problem.
+          </div>
+          <p>
+            From consulting and development to data administration and IT
+            support. One team to help you build, manage, and improve your
+            technology.
+          </p>
+        </div>
+        <div className="service-grid">
+          {services.map(([n, name, title, description, tags, icon]) => (
+            <article key={n as string} className="service-card">
+              <div className="service-card-top">
+                <span className="service-icon" aria-hidden="true">
+                  {icon}
+                </span>
+                <span>/{n}</span>
+              </div>
+              <span className="service-name">{name}</span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <ul>
+                {(tags as string[]).map((t) => (
+                  <li key={t}>
+                    <span>↗</span>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href={`/contact/?service=${encodeURIComponent(name as string)}`}
+                aria-label={`Discuss ${name}`}
+                className="card-link"
+              >
+                Explore possibilities ↗
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section id="explore" className="explore-section anchor-offset">
+        <div className="section-wrap section-space">
+          <div className="section-heading">
+            <div>
+              <span className="eyebrow">LESS ABSTRACT. MORE INTERACTIVE.</span>
+              <h2>
+                See the possibilities.
+                <br />
+                <span className="serif-accent">Try them yourself.</span>
+              </h2>
+            </div>
+            <p>
+              A small window into what we can build. Explore interactive
+              examples of intelligent software in action.
             </p>
           </div>
-          <div className="grid grid-cols-2 max-[880px]:grid-cols-1 gap-6">
-            <div className="border border-line rounded-[14px] p-8 hover:border-indigo transition-colors duration-150">
-              <div className="font-extrabold text-[19px] mb-2">Technology consulting</div>
-              <p className="text-[15.5px] leading-[1.65] text-secondary m-0">
-                Strategy and architecture for teams building or modernizing software, from AI
-                adoption to workflow automation, with a focus on legal and regulated industries.
-              </p>
-            </div>
-            <div className="border border-line rounded-[14px] p-8 hover:border-indigo transition-colors duration-150">
-              <div className="font-extrabold text-[19px] mb-2">Custom software development</div>
-              <p className="text-[15.5px] leading-[1.65] text-secondary m-0">
-                Small-scale, high-craft builds: internal tools, workflow systems, and product
-                prototypes, designed, shipped, and supported by the team behind our products.
-              </p>
-            </div>
+          <ServiceLab />
+        </div>
+      </section>
+      <section
+        id="approach"
+        className="section-wrap section-space anchor-offset"
+      >
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">HOW WE WORK</span>
+            <h2>
+              From a good question
+              <br />
+              to a working solution.
+            </h2>
           </div>
-          <Link
-            href="/contact"
-            className="inline-block mt-8 font-bold text-[15.5px] text-indigo hover:text-indigo-hover transition-colors duration-150"
-          >
-            Start a conversation →
+          <p>
+            Start with the problem. Choose the right technology. Keep the people
+            using it at the center.
+          </p>
+        </div>
+        <div className="process-grid">
+          {[
+            [
+              "01",
+              "Understand",
+              "Map your goals, users, data, and constraints. Define what success should look like.",
+            ],
+            [
+              "02",
+              "Make it tangible",
+              "Prototype the experience and validate the riskiest assumptions early.",
+            ],
+            [
+              "03",
+              "Build & integrate",
+              "Develop, test, and connect the solution to your existing tools and systems.",
+            ],
+            [
+              "04",
+              "Measure & evolve",
+              "Monitor what matters, gather feedback, and improve with each iteration.",
+            ],
+          ].map(([n, t, d]) => (
+            <article key={n}>
+              <span>{n}</span>
+              <h3>{t}</h3>
+              <p>{d}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="cta-section">
+        <div className="section-wrap">
+          <span className="eyebrow">YOUR NEXT CHAPTER</span>
+          <h2>
+            Have a challenge in mind?
+            <br />
+            <span className="serif-accent">Let’s make it work.</span>
+          </h2>
+          <p>
+            A new product. A smarter workflow. A clearer view of your data.
+            <br />
+            Tell us what you’re working on.
+          </p>
+          <Link href="/contact" className="primary-button">
+            Start a conversation ↗
           </Link>
         </div>
-      </section>
-
-      {/* Mission strip */}
-      <section className="max-w-content mx-auto px-8 max-[720px]:px-5 py-[110px] max-[880px]:py-20 text-center">
-        <p className="font-serif italic text-[30px] max-[880px]:text-2xl leading-[1.45] text-ink max-w-[720px] mx-auto mb-[18px] [text-wrap:pretty]">
-          &ldquo;Legal help shouldn&apos;t depend on who you know or what you can afford. It should
-          be on sight, in flow, and within reach.&rdquo;
-        </p>
-        <div className="text-sm font-semibold tracking-[0.1em] uppercase text-muted">The EightArc mission</div>
       </section>
     </main>
   );

@@ -1,15 +1,16 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { LogoLockup } from './Logo';
+import { useState } from "react";
+import Link from "next/link";
+import { LogoLockup } from "./Logo";
 
 const links = [
-  { href: '/#products', label: 'Products' },
-  { href: '/#services', label: 'Services' },
-  { href: '/about', label: 'About' },
-  { href: '/careers', label: 'Careers' },
-  { href: '/news', label: 'News' },
+  { href: "/#products", label: "Products" },
+  { href: "/#explore", label: "Explore" },
+  { href: "/#services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/#approach", label: "Approach" },
+  { href: "/news", label: "Insights" },
 ];
 
 export default function Nav() {
@@ -17,11 +18,11 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 bg-[rgba(251,251,253,0.85)] backdrop-blur-[12px] border-b border-line">
-      <div className="max-w-content mx-auto px-8 max-[720px]:px-5 h-[68px] flex items-center justify-between">
+      <div className="max-w-content mx-auto px-8 max-[880px]:px-5 h-[68px] flex items-center justify-between">
         <LogoLockup />
 
         {/* Desktop nav */}
-        <nav className="flex max-[720px]:hidden gap-[30px] items-center text-[14.5px] font-medium">
+        <nav className="flex max-[880px]:hidden gap-[18px] items-center text-[14.5px] font-medium">
           {links.map((l) => (
             <Link
               key={l.label}
@@ -41,20 +42,30 @@ export default function Nav() {
 
         {/* Mobile hamburger */}
         <button
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen(!open)}
-          className="hidden max-[720px]:flex flex-col justify-center items-center w-10 h-10 gap-[5px]"
+          className="hidden max-[880px]:flex flex-col justify-center items-center w-10 h-10 gap-[5px]"
         >
-          <span className={`block w-5 h-[2px] bg-ink transition-transform duration-150 ${open ? 'translate-y-[7px] rotate-45' : ''}`} />
-          <span className={`block w-5 h-[2px] bg-ink transition-opacity duration-150 ${open ? 'opacity-0' : ''}`} />
-          <span className={`block w-5 h-[2px] bg-ink transition-transform duration-150 ${open ? '-translate-y-[7px] -rotate-45' : ''}`} />
+          <span
+            className={`block w-5 h-[2px] bg-ink transition-transform duration-150 ${open ? "translate-y-[7px] rotate-45" : ""}`}
+          />
+          <span
+            className={`block w-5 h-[2px] bg-ink transition-opacity duration-150 ${open ? "opacity-0" : ""}`}
+          />
+          <span
+            className={`block w-5 h-[2px] bg-ink transition-transform duration-150 ${open ? "-translate-y-[7px] -rotate-45" : ""}`}
+          />
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <nav className="hidden max-[720px]:flex flex-col px-5 pb-5 gap-1 border-t border-line bg-page">
+        <nav
+          id="mobile-navigation"
+          className="hidden max-[880px]:flex flex-col px-5 pb-5 gap-1 border-t border-line bg-page"
+        >
           {links.map((l) => (
             <Link
               key={l.label}

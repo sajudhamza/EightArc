@@ -1,9 +1,14 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-export function Logo({ size = 'nav' }: { size?: 'nav' | 'footer' }) {
-  const tile = size === 'nav' ? 'w-[30px] h-[30px] rounded-lg text-[17px]' : 'w-[26px] h-[26px] rounded-[7px] text-[15px]';
+export function Logo({ size = "nav" }: { size?: "nav" | "footer" }) {
+  const tile =
+    size === "nav"
+      ? "w-[30px] h-[30px] rounded-lg text-[17px]"
+      : "w-[26px] h-[26px] rounded-[7px] text-[15px]";
   return (
-    <span className={`${tile} bg-indigo text-white inline-flex items-center justify-center font-extrabold shrink-0`}>
+    <span
+      className={`${tile} bg-indigo text-white inline-flex items-center justify-center font-extrabold shrink-0`}
+    >
       8
     </span>
   );

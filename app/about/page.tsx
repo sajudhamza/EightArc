@@ -1,60 +1,75 @@
-import type { Metadata } from 'next';
-
+import type { Metadata } from "next";
+import Link from "next/link";
 export const metadata: Metadata = {
-  title: 'About',
+  title: "About",
   description:
-    'EightArc Inc makes the law accessible through software, one focused product at a time.',
+    "EightArc brings software engineering, artificial intelligence, and data analytics together to solve practical business problems.",
 };
-
 export default function About() {
   return (
-    <main className="max-w-content mx-auto px-8 max-[720px]:px-5 py-[100px] max-[880px]:py-16">
-      <div className="max-w-[720px] mb-20 max-[880px]:mb-12">
-        <div className="text-[13px] font-bold tracking-[0.12em] uppercase text-indigo mb-4">About EightArc</div>
-        <h1 className="text-[52px] max-[880px]:text-[34px] font-black tracking-[-0.03em] leading-[1.05] m-0 mb-[26px]">
-          We make the law accessible through software.
-        </h1>
-        <p className="text-[19px] leading-[1.7] text-body m-0 [text-wrap:pretty]">
-          Legal processes are among the most consequential things people and businesses go through,
-          and among the least well-served by technology. EightArc Inc exists to change that, one
-          focused product at a time.
+    <main id="main-content" className="section-wrap page-hero">
+      <span className="eyebrow">ABOUT EIGHTARC</span>
+      <h1>
+        Thoughtful engineering.
+        <br />
+        <span className="serif-accent">Practical intelligence.</span>
+      </h1>
+      <p className="page-intro">
+        We bring software development, artificial intelligence, and data
+        analytics together to help businesses turn ideas into working systems.
+      </p>
+      <section className="about-products">
+        <h2>Our own products. The same engineering mindset.</h2>
+        <p>
+          We also build PermFlowAI for PERM recruitment and filing workflows,
+          and LawOnSight for legal questions and attorney connections.
         </p>
-      </div>
-
-      <div className="grid grid-cols-2 max-[880px]:grid-cols-1 gap-16 max-[880px]:gap-10 mb-20 max-[880px]:mb-12">
-        <div className="text-[16.5px] leading-[1.75] text-body">
-          <h2 className="text-2xl font-extrabold tracking-[-0.02em] text-ink m-0 mb-3.5">Why &ldquo;EightArc&rdquo;?</h2>
-          <p className="m-0 [text-wrap:pretty]">
-            The arc is the shape of progress: the long arc that bends toward justice. Eight is the
-            loop that never ends. We build products for the legal system the way it should work:
-            continuously, for everyone.
+        <Link href="/#products" className="text-link">
+          Explore our products ↗
+        </Link>
+      </section>
+      <div className="info-grid">
+        <section>
+          <h2>Technology with a purpose.</h2>
+          <p>
+            A useful solution starts with a clear understanding of the problem.
+            We focus on the workflows, people, and decisions behind the
+            technology, then choose the tools that fit.
           </p>
-        </div>
-        <div className="text-[16.5px] leading-[1.75] text-body">
-          <h2 className="text-2xl font-extrabold tracking-[-0.02em] text-ink m-0 mb-3.5">How we build</h2>
-          <p className="m-0 [text-wrap:pretty]">
-            We don&apos;t build one platform for everything. We build sharp tools for specific legal
-            workflows: LawOnSight for individuals who need answers and attorneys, PermFlowAI for
-            teams managing PERM filings. Each product stands alone; all share the same standard of
-            care.
+        </section>
+        <section>
+          <h2>Built to connect.</h2>
+          <p>
+            Software, models, and data work better together. Our services span
+            application development, LLM integration, machine learning,
+            simulation, and analytics, so the pieces can become one coherent
+            solution.
           </p>
-        </div>
+        </section>
+        <section>
+          <h2>Make it tangible early.</h2>
+          <p>
+            Prototypes and small, testable releases help turn assumptions into
+            evidence. We work toward clear requirements, meaningful evaluation,
+            and software that people can actually use.
+          </p>
+        </section>
+        <section>
+          <h2>Keep improving.</h2>
+          <p>
+            A launch is a starting point. We plan for monitoring,
+            maintainability, and iteration so your solution can evolve with your
+            business.
+          </p>
+        </section>
       </div>
-
-      <div className="grid grid-cols-3 max-[880px]:grid-cols-1 gap-6">
-        <div className="border-t-[3px] border-indigo pt-[18px]">
-          <div className="font-extrabold text-[17px] mb-1.5">Focused</div>
-          <div className="text-[15px] leading-[1.6] text-secondary">One product, one workflow, done properly. No sprawl.</div>
-        </div>
-        <div className="border-t-[3px] border-indigo pt-[18px]">
-          <div className="font-extrabold text-[17px] mb-1.5">Trustworthy</div>
-          <div className="text-[15px] leading-[1.6] text-secondary">Legal work demands accuracy, discretion, and plain language.</div>
-        </div>
-        <div className="border-t-[3px] border-indigo pt-[18px]">
-          <div className="font-extrabold text-[17px] mb-1.5">Growing</div>
-          <div className="text-[15px] leading-[1.6] text-secondary">Two products today. More legal workflows are coming.</div>
-        </div>
-      </div>
+      <Link
+        className="primary-button"
+        href="/contact"
+        style={{ marginTop: 40 }}
+      >
+        Tell us what’s next ↗
+      </Link>
     </main>
   );
 }

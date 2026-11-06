@@ -1,31 +1,54 @@
-import type { Metadata } from 'next';
-import { posts } from '@/lib/posts';
-
+import type { Metadata } from "next";
+import Link from "next/link";
 export const metadata: Metadata = {
-  title: 'News',
-  description: "What's new at EightArc: product launches and company updates.",
+  title: "Insights",
+  description:
+    "Explore how software engineering, AI, machine learning, and data analytics come together.",
 };
-
-export default function News() {
+export default function Insights() {
   return (
-    <main className="max-w-content mx-auto px-8 max-[720px]:px-5 py-[100px] max-[880px]:py-16">
-      <div className="text-[13px] font-bold tracking-[0.12em] uppercase text-indigo mb-4">News</div>
-      <h1 className="text-[52px] max-[880px]:text-[34px] font-black tracking-[-0.03em] m-0 mb-14">
-        What&apos;s new at EightArc
+    <main id="main-content" className="section-wrap page-hero">
+      <span className="eyebrow">IDEAS INTO PRACTICE</span>
+      <h1>
+        A closer look at
+        <br />
+        <span className="serif-accent">what’s possible.</span>
       </h1>
-      <div className="flex flex-col max-w-[760px]">
-        {posts.map((post) => (
-          <a
-            key={post.title}
-            href="#"
-            className="grid grid-cols-[130px_1fr] max-[720px]:grid-cols-1 gap-8 max-[720px]:gap-1.5 py-7 border-t border-line text-inherit hover:bg-surface transition-colors duration-150"
-          >
-            <div className="text-sm font-semibold text-muted pt-[3px]">{post.date}</div>
-            <div>
-              <div className="text-xl font-bold tracking-[-0.015em] mb-1.5 text-ink">{post.title}</div>
-              <div className="text-[15px] leading-[1.6] text-secondary">{post.excerpt}</div>
-            </div>
-          </a>
+      <p className="page-intro">
+        A few starting points for thinking about your next software, AI, or data
+        project.
+      </p>
+      <div className="insight-list">
+        {[
+          [
+            "AI & LLMS",
+            "Connect language models to your business context",
+            "Retrieval-augmented generation brings relevant documents into an LLM workflow. Useful implementations also need source quality, permission checks, and a way to evaluate the answers.",
+          ],
+          [
+            "MACHINE LEARNING",
+            "Start with a decision worth improving",
+            "A forecast or classification is useful when it changes what someone can do next. Begin with the decision, the available data, and a baseline you can measure against.",
+          ],
+          [
+            "DATA ANALYTICS",
+            "Make the foundations as useful as the dashboard",
+            "Consistent definitions and reliable pipelines help teams trust what they see. A good analytics project connects source data, shared metrics, and the questions people ask every day.",
+          ],
+          [
+            "REINFORCEMENT LEARNING",
+            "Explore decisions safely in simulation",
+            "Sequential problems need more than a single prediction. Simulations let teams explore policies and trade-offs before considering a real-world deployment.",
+          ],
+        ].map(([category, title, body]) => (
+          <article key={title}>
+            <span className="eyebrow">{category}</span>
+            <h2>{title}</h2>
+            <p>{body}</p>
+            <Link href="/#explore" className="text-link">
+              Explore an interactive example ↗
+            </Link>
+          </article>
         ))}
       </div>
     </main>
